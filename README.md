@@ -6,9 +6,21 @@ Install Conda.
 
 These four commands quickly and quietly install the latest M1 macOS version of the installer and then clean up after themselves. To install a different version or architecture of Miniconda for macOS, change the name of the .sh installer in the curl command.
 
+https://docs.anaconda.com/free/miniconda/
+
+mac M1:
 ```
 mkdir -p ~/miniconda3
 curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+````
+
+for linux:
+
+```
+mkdir -p ~/miniconda3
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ````
@@ -27,9 +39,23 @@ conda create -n donkey python=3.11
 conda activate donkey
 ```
 
+mac
 ```
 brew install ffmpeg
 ```
+
+linux
+```
+sudo apt install ffmpeg
+sudo apt-get install xclip
+
+```
+
+in conda env donkey:
+```
+conda install -c conda-forge libstdcxx-ng
+```
+
 
 ```
 pip install tensorflow==2.15.1
