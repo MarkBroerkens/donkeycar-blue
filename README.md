@@ -35,11 +35,18 @@ brew install ffmpeg
 pip install tensorflow==2.15.1
 pip install tensorflow-metal
 pip install donkeycar\[pc\]
+pip install moviepy
 ```
 
 
 
 ```
-pip install donkeycar\[macos\]
-pip install tensorflow
+donkey ui
 ```
+
+
+drive
+```http://10.9.141.1:8887/drive```
+
+tubclean
+```http://10.9.141.1:8886/```
