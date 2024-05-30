@@ -367,7 +367,7 @@ PWM_STEERING_THROTTLE = {
 # 
 # #TRAINING
 # # The default AI framework to use. Choose from (tensorflow|pytorch)
-# DEFAULT_AI_FRAMEWORK = 'tensorflow'
+DEFAULT_AI_FRAMEWORK = 'tensorflow'
 # 
 # # The DEFAULT_MODEL_TYPE will choose which model will be created at training
 # # time. This chooses between different neural network designs. You can
@@ -375,30 +375,30 @@ PWM_STEERING_THROTTLE = {
 # # python manage.py train and drive commands.
 # # tensorflow models: (linear|categorical|tflite_linear|tensorrt_linear)
 # # pytorch models: (resnet18)
-# DEFAULT_MODEL_TYPE = 'linear'
-# BATCH_SIZE = 128                #how many records to use when doing one pass of gradient decent. Use a smaller number if your gpu is running out of memory.
-# TRAIN_TEST_SPLIT = 0.8          #what percent of records to use for training. the remaining used for validation.
-# MAX_EPOCHS = 100                #how many times to visit all records of your data
-# SHOW_PLOT = True                #would you like to see a pop up display of final loss?
-# VERBOSE_TRAIN = True            #would you like to see a progress bar with text during training?
-# USE_EARLY_STOP = True           #would you like to stop the training if we see it's not improving fit?
-# EARLY_STOP_PATIENCE = 5         #how many epochs to wait before no improvement
-# MIN_DELTA = .0005               #early stop will want this much loss change before calling it improved.
-# PRINT_MODEL_SUMMARY = True      #print layers and weights to stdout
-# OPTIMIZER = None                #adam, sgd, rmsprop, etc.. None accepts default
-# LEARNING_RATE = 0.001           #only used when OPTIMIZER specified
-# LEARNING_RATE_DECAY = 0.0       #only used when OPTIMIZER specified
-# SEND_BEST_MODEL_TO_PI = False   #change to true to automatically send best model during training
-# CREATE_TF_LITE = True           # automatically create tflite model in training
-# CREATE_TENSOR_RT = False        # automatically create tensorrt model in training
-# SAVE_MODEL_AS_H5 = False        # if old keras format should be used instead of savedmodel
-# CACHE_IMAGES = True             # if images are cached in training for speed up
+DEFAULT_MODEL_TYPE = 'linear'
+BATCH_SIZE = 128                #how many records to use when doing one pass of gradient decent. Use a smaller number if your gpu is running out of memory.
+TRAIN_TEST_SPLIT = 0.8          #what percent of records to use for training. the remaining used for validation.
+MAX_EPOCHS = 100                #how many times to visit all records of your data
+SHOW_PLOT = True                #would you like to see a pop up display of final loss?
+VERBOSE_TRAIN = True            #would you like to see a progress bar with text during training?
+USE_EARLY_STOP = True           #would you like to stop the training if we see it's not improving fit?
+EARLY_STOP_PATIENCE = 5         #how many epochs to wait before no improvement
+MIN_DELTA = .0005               #early stop will want this much loss change before calling it improved.
+PRINT_MODEL_SUMMARY = True      #print layers and weights to stdout
+OPTIMIZER = None                #adam, sgd, rmsprop, etc.. None accepts default
+LEARNING_RATE = 0.001           #only used when OPTIMIZER specified
+LEARNING_RATE_DECAY = 0.0       #only used when OPTIMIZER specified
+SEND_BEST_MODEL_TO_PI = False   #change to true to automatically send best model during training
+CREATE_TF_LITE = True           # automatically create tflite model in training
+CREATE_TENSOR_RT = False        # automatically create tensorrt model in training
+SAVE_MODEL_AS_H5 = False        # if old keras format should be used instead of savedmodel
+CACHE_IMAGES = True             # if images are cached in training for speed up
 # 
-# PRUNE_CNN = False               #This will remove weights from your model. The primary goal is to increase performance.
-# PRUNE_PERCENT_TARGET = 75       # The desired percentage of pruning.
-# PRUNE_PERCENT_PER_ITERATION = 20 # Percenge of pruning that is perform per iteration.
-# PRUNE_VAL_LOSS_DEGRADATION_LIMIT = 0.2 # The max amout of validation loss that is permitted during pruning.
-# PRUNE_EVAL_PERCENT_OF_DATASET = .05  # percent of dataset used to perform evaluation of model.
+PRUNE_CNN = False               #This will remove weights from your model. The primary goal is to increase performance.
+PRUNE_PERCENT_TARGET = 75       # The desired percentage of pruning.
+PRUNE_PERCENT_PER_ITERATION = 20 # Percenge of pruning that is perform per iteration.
+PRUNE_VAL_LOSS_DEGRADATION_LIMIT = 0.2 # The max amout of validation loss that is permitted during pruning.
+PRUNE_EVAL_PERCENT_OF_DATASET = .05  # percent of dataset used to perform evaluation of model.
 # 
 # #
 # # Augmentations and Transformations
@@ -499,8 +499,8 @@ PWM_STEERING_THROTTLE = {
 # 
 # # Settings for brightness and blur, use 'MULTIPLY' and/or 'BLUR' in
 # # AUGMENTATIONS
-# AUG_BRIGHTNESS_RANGE = 0.2  # this is interpreted as [-0.2, 0.2]
-# AUG_BLUR_RANGE = (0, 3)
+AUG_BRIGHTNESS_RANGE = 0.2  # this is interpreted as [-0.2, 0.2]
+AUG_BLUR_RANGE = (0, 3)
 # 
 # # "CROP" Transformation
 # # Apply mask to borders of the image
