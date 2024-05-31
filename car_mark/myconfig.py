@@ -771,4 +771,4 @@ AUTO_CREATE_NEW_TUB = True    #create a new tub (tub_YY_MM_DD) directory when re
 # 
 # # PI connection
 PI_USERNAME = "donkey"
-PI_HOSTNAME = "10.9.141.1"
+PI_HOSTNAME = "donkeycar-blue.local"
