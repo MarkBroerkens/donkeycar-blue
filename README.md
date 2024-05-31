@@ -33,17 +33,19 @@ Follow Instructions [get Raspberry PI working](https://docs.donkeycar.com/guide/
 ### Step 1a: Configure SSH
 on your Mac type in the follwoing commands. Don't set a password for the SSH key. 
 ```
+# mac
 mkdir ~/.ssh/donkeycar-blue
 ssh-keygen -t ed25519 -C "broerkens@gmail.com"
 ssh-copy-id -i ~/.ssh/donkeycar-blue/id_ed25519 donkey@donkeycar-blue.local
 ```
 
-configure new SSH key for donkeycar-blue.local:
+configure new SSH key for donkeycar-blue.local. Open ssh config file
 ```
+# mac
 nano ~/.ssh/config 
 ```
 
-add
+and add the following text
 
 ```
 Host donkeycar-blue.local
@@ -52,6 +54,7 @@ Host donkeycar-blue.local
 
 ### Step 2: Update and Upgrade
 ```
+# vehicle
 sudo apt-get update --allow-releaseinfo-change
 sudo apt-get upgrade
 ```
@@ -62,6 +65,7 @@ You have to run the following commands AFTER update of the system.
 #### Increase timeout:
 
 ```
+# vehicle
 sudo nano /usr/share/libcamera/pipeline/rpi/vc4/rpi_apps.yaml
 ```
 
@@ -74,6 +78,7 @@ add
 
 #### Fix permissions of libcamera
 ```
+# vehicle
 sudo nano /etc/udev/rules.d/raspberrypi.rules
 ```
 
@@ -83,8 +88,9 @@ add
 SUBSYSTEM=="dma_heap", GROUP="video", MODE="0660"
 ```
 
-reboot or run: 
+reboot vehicle or run: 
 ```
+# vehicle
 udevadm control --reload-rules && udevadm trigger
 ```
 
@@ -92,6 +98,7 @@ As long as your non-privledged user is in the 'video' group then libcamera will 
 
 ### Step 3: Raspi-config
 ```
+# vehicle
 sudo raspi-config
 ```
 
@@ -105,6 +112,7 @@ sudo raspi-config
 To create a virtual environmnet run the following from your home directory:
 
 ```
+# vehicle
 python3 -m venv env --system-site-packages
 echo "source ~/env/bin/activate" >> ~/.bashrc
 source ~/.bashrc
@@ -113,17 +121,20 @@ source ~/.bashrc
 #### Install required libraries
 
 ```
+# vehicle
 sudo apt install libcap-dev libhdf5-dev
 ```
 
 ### Step 5: Install Donkeycar Python Code
 
 ```
+# vehicle
 pip install donkeycar[pi]==5.1
 ```
 
 ### Step 6: Install Custom vehicle `donkeycar-blue``
 ```
+# vehicle
 cd ~
 mkdir cars
 cd cars
@@ -135,10 +146,12 @@ cd car_mark
 ## Vehicle Calibration
 calibrate steering
 ```
+# vehicle
 donkey calibrate --pwm-pin PCA9685.1:40.1 #steering
 ```
 
 ```
+# vehicle
 donkey calibrate --pwm-pin PCA9685.1:40.0 #throttle
 ```
 
@@ -158,6 +171,7 @@ Follow instructions at https://raspap.com/#quick
 These four commands quickly and quietly install the latest M1 macOS version of the installer and then clean up after themselves. To install a different version or architecture of Miniconda for macOS, change the name of the .sh installer in the curl command. see [docs](https://docs.anaconda.com/free/miniconda/)
 
 ```
+# mac
 mkdir -p ~/miniconda3
 curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
@@ -167,6 +181,7 @@ rm -rf ~/miniconda3/miniconda.sh
 After installing, initialize your newly-installed Miniconda. The following commands initialize for bash and zsh shells:
 
 ```
+# mac
 ~/miniconda3/bin/conda init bash
 ~/miniconda3/bin/conda init zsh
 ```
@@ -174,6 +189,7 @@ After installing, initialize your newly-installed Miniconda. The following comma
 Setup your `donkey` conda env with:
 
 ```
+# mac
 conda create -n donkey python=3.11
 conda activate donkey
 ```
@@ -183,6 +199,7 @@ conda activate donkey
 
 Install donkeycar v5.2.dev2 software (v5.1 runs into errors)
 ```
+# mac
 pip install tensorflow==2.15.1
 pip install tensorflow-metal
 mkdir devel
@@ -198,6 +215,7 @@ pip install -e .\[pc\]
 
 ### Install dependencies for `makemovie`
 ```
+# mac
 brew install ffmpeg
 pip install moviepy
 ```
@@ -211,21 +229,25 @@ pip install moviepy
 ### On vehicle
 #### Clean data
 ```
+# vehicle
 cd ~/devel/donkeycar-blue/car_mark/data
 rm -rf * 
 ```
 
 #### Start driving
 ```
+# vehicle
 python manage.py drive
 ```
 
 ### On Mac M1 Host PC
 ```
+# mac
 http://donkeycar-blue.local:8887/drive
 ```
 
 ```
+# mac
 cd ~/devel/donkeycar-blue/car_mark
 donkey ui
 ```
