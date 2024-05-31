@@ -7,7 +7,7 @@
 BOM
 
 | Component | Where to buy | Specifications	| Comments |
-|---	|---	|---	|---	|
+|:---	|:---	|:---	|:---	|
 | Chassis: Wltoys 144010 1/14 	| [Banggood](https://www.banggood.com/de/Wltoys-144010-1-or-14-2_4G-4WD-High-Speed-Racing-Brushless-RC-Car-Vehicle-Models-75km-or-h-p-1933541.html?cur_warehouse=CZ) ~120,00€ | RC Car Chassis, brushless motor, receiver and ESC are different parts   	| ![chassis](images/chassis.webp)	|
 | Compute: Raspberry Pi 4, 8MB | [Berrybase](https://www.berrybase.de/raspberry-pi-4-computer-modell-b-8gb-ram) ~80,00€	|   	|	|
 | Memory: SD Card  	|   	|   	|	|
