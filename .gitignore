@@ -1,2 +1,5 @@
 car_mark/data/**
+car_mark/data*/**
 **/.DS_Store
+car_mark/models/*.savedmodel/**
+
