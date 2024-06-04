@@ -228,8 +228,14 @@ pip install moviepy
 ## Start driving
 ### On vehicle
 #### Clean data
+
 ```
-# vehicle
+# mac
+ssh donkey@donkeycar-blue.local
+```
+
+```
+# mac
 cd ~/devel/donkeycar-blue/car_mark/data
 rm -rf * 
 ```
@@ -237,7 +243,14 @@ rm -rf *
 #### Start driving
 ```
 # vehicle
-python manage.py drive
+cd ~/cars/donkeycar-blue/car_mark/
+python manage.py drive models/mypilot.tflite --type tflite_linear --js
+```
+
+### Train
+[Train autopilot](https://docs.donkeycar.com/guide/deep_learning/train_autopilot/)
+```
+--model ~/mycar/models/mypilot.tflite --type tflite_linear
 ```
 
 ### On Mac M1 Host PC
