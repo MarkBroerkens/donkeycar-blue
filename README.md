@@ -244,13 +244,19 @@ rm -rf *
 ```
 # vehicle
 cd ~/cars/donkeycar-blue/car_mark/
-python manage.py drive models/mypilot.tflite --type tflite_linear --js
+python manage.py drive --js
+python manage.py drive --model models/mypilot.tflite --type tflite_linear --js
 ```
 
 ### Train
 [Train autopilot](https://docs.donkeycar.com/guide/deep_learning/train_autopilot/)
 ```
---model ~/mycar/models/mypilot.tflite --type tflite_linear
+ donkey train --tub ./data/tub_1_24-06-04 --model ./models/mypilot.h5
+```
+
+### make movie
+```
+donkey makemovie --model models/pilot_24-06-08_3.savedmodel --type linear --tub data/tub_1_24-06-04 --out pilot_24-06-08_3.mp4 --salient --draw-user-input
 ```
 
 ### On Mac M1 Host PC
